@@ -1,5 +1,7 @@
 # Autonome Pipeline
 
+Das Ziel ist es, dass der User diese Pipeline dazu nutzt, um seine Arbeit zu automatisieren. Einfach übernehmen und die KI stellt alles ein und weist den User darauf hin, was gebraucht wird. Es werden verschiedene Programme gebraucht. Diese werden von der KI selbstständig nach der Erlaubnis des Users dann installiert und angebunden. Alles voll autonom. Der User muss nicht programmieren können.
+
 eine youtube-kanal-url wird zu transkripten, bildern, wissen, 3d und einer
 seite mit karte. beliebiger youtube kanal (erlaubns nachfragen) .
 
