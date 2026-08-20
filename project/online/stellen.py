@@ -53,7 +53,7 @@ def _online_stellen(kanal: str, seite: Path, wrangler: str) -> dict:
             "deploy",
             str(seite),
             "--project-name",
-            "channel-site",
+            "autonome-pipeline",
         ],
         capture_output=True,
         text=True,
@@ -62,7 +62,7 @@ def _online_stellen(kanal: str, seite: Path, wrangler: str) -> dict:
     )
     if fertig.returncode != 0:
         raise RuntimeError("wrangler fehlgeschlagen")
-    daten = {"status": "online", "projekt": "channel-site", "pfad": str(seite)}
+    daten = {"status": "online", "projekt": "autonome-pipeline", "pfad": str(seite)}
     json_schreiben(seite / "online.json", daten)
     json_schreiben(seite / "out" / "online.json", daten)
     schritt_merken(kanal, 10, "ok", daten)

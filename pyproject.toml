@@ -1,7 +1,7 @@
 [project]
-name = "channel-site"
+name = "autonome-pipeline"
 version = "0.1.0"
-description = "youtube-kanal zu seite mit wissen, orte und 3d"
+description = "Autonome Pipeline — youtube-kanal zu seite mit wissen, orte und 3d"
 requires-python = ">=3.11"
 dependencies = [
     "yt-dlp>=2024.1.0",

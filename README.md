@@ -1,4 +1,4 @@
-# von der kanal-url zur seite
+# Autonome Pipeline
 
 eine youtube-kanal-url wird zu transkripten, bildern, wissen, 3d und einer
 seite mit karte. beliebiger youtube kanal (erlaubns nachfragen) .

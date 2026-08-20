@@ -9,7 +9,7 @@ import urllib.parse
 import urllib.request
 
 NOMINATIM = "https://nominatim.openstreetmap.org/search"
-USER_AGENT = "channel-site/0.1"
+USER_AGENT = "autonome-pipeline/0.1"
 TIMEOUT_SEC = 20
 OSTIA_LAGE = (41.755, 12.291)
 BEISPIEL_LAGE = {
