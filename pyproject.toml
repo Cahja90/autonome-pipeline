@@ -1,0 +1,25 @@
+[project]
+name = "channel-site"
+version = "0.1.0"
+description = "youtube-kanal zu seite mit wissen, orte und 3d"
+requires-python = ">=3.11"
+dependencies = [
+    "yt-dlp>=2024.1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "black>=24.0"]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.pytest.ini_options]
+testpaths = ["project/tests"]
+pythonpath = ["project"]
+
+[tool.pylint.messages_control]
+disable = ["C0114", "C0115", "C0116"]
+
+[tool.pylint.format]
+max-line-length = 88
