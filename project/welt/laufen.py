@@ -1,4 +1,4 @@
-"""schritt 7: grundriss, blender, pruefen, dann marble."""
+"""schritt 8: grundriss, blender, pruefen, dann marble."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from pathlib import Path
 from shutil import which
 
 from ablage import json_liste, json_schreiben
-from config import kanal_ordner
+from config import SICHT_MODELL, kanal_ordner
 from welt.chisel import chisel_laufen
 from welt.plan import ort_plan
 from welt.pruefen import pruef_schreiben
@@ -37,6 +37,18 @@ def _ort_bauen(kanal: str, ort: dict) -> dict:
     skript = skript_schreiben(plan, ordner)
     pruef = pruef_schreiben(plan, ordner)
     _referenzen(kanal, ort, ordner)
+    if _ist_beispiel(kanal):
+        #beispiel malt nur. blender, chisel und welt bleiben aus
+        (ordner / "skip_marble.txt").write_text(
+            "beispiel, keine echte welt\n",
+            encoding="utf-8",
+        )
+        (ordner / "verify_ok.txt").write_text(
+            "beispiel: nur skripte und eine gemalte ansicht\n",
+            encoding="utf-8",
+        )
+        _beispiel_sicht(ordner, plan)
+        return {"slug": slug, "status": "skript", "blender": False}
     blender = _blender_bin()
     if not blender:
         _ohne_blender(kanal, ordner)
@@ -48,6 +60,30 @@ def _ort_bauen(kanal: str, ort: dict) -> dict:
     (ordner / "verify_ok.txt").write_text("VERIFY OK\n", encoding="utf-8")
     chisel = chisel_laufen(ordner, plan["prompt"])
     return {"slug": slug, "status": chisel.get("status"), "chisel": chisel, "blender": True}
+
+
+def _ist_beispiel(kanal: str) -> bool:
+    if os.environ.get("CHANNEL_SITE_BEISPIEL") == "1":
+        return True
+    return kanal == "beispiel"
+
+
+def _beispiel_sicht(ordner: Path, plan: dict) -> None:
+    #gemalte ansicht, kein foto, kein name, kein key
+    from bilder.malen import szene_png
+
+    ziel = ordner / "sicht_beispiel.png"
+    ziel.write_bytes(szene_png(nah=True, saat=4))
+    json_schreiben(
+        ordner / "sicht.json",
+        {
+            "ok": True,
+            "grund": "beispiel, nur gemalt",
+            "modell": SICHT_MODELL,
+            "marble": plan.get("modell"),
+            "datei": ziel.name,
+        },
+    )
 
 
 def _ohne_blender(kanal: str, ordner: Path) -> None:

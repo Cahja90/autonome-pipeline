@@ -1,12 +1,10 @@
-# Autonome Pipeline
+# autonome pipeline
 
-Das Ziel ist es, dass der User diese Pipeline dazu nutzt, um seine Arbeit zu automatisieren. Einfach übernehmen und die KI stellt alles ein und weist den User darauf hin, was gebraucht wird. Es werden verschiedene Programme gebraucht. Diese werden von der KI selbstständig nach der Erlaubnis des Users dann installiert und angebunden. Alles voll autonom. Der User muss nicht programmieren können.
+ein youtube-kanal wird zu texten, bildern, orten, wissen und einer seite mit karte.
+3d kommt danach, pro ort. der beispiel-lauf braucht kein netz und keinen key.
 
-eine youtube-kanal-url wird zu transkripten, bildern, wissen, 3d und einer
-seite mit karte. beliebiger youtube kanal (erlaubns nachfragen) .
-
-die anderen zwei repos bleiben eigene projekte (transkripte, 3d-welten).
-hier läuft die Pipeline bis zur seite.
+stand: 12. november 2026. der ablauf ist auf die modelle von heute gezogen.
+die bilder im repo sind gemalt. kein foto, kein name, keine mail, kein key.
 
 ## ablauf
 
@@ -16,31 +14,55 @@ hier läuft die Pipeline bis zur seite.
 4. bilder aus den videos
 5. orte finden
 6. wissen bauen
-7. seite bauen (karte, orte, wissen, videos, 3d welt)
-8. 3d welt je ort — blender prüfen, dann chisel. screenshots werden von der KI kontroliert und live angepasst (kamera/prompt), erst dann welt. ohne `verify_ok.txt`kein chisel.
-9. kontrolle — KI schreibt `QA_PASSED.txt` selbst, wenn alles passt.
-10. deploy der 3D welt zu den gehörigen  Orten auf der  RAG Internetseite.  
+7. seite bauen (karte, orte, wissen, videos)
+8. 3d je ort. erst blender und `verify_ok.txt`, dann chisel. shots lesen, kamera oder prompt anpassen, erst dann die welt
+9. kontrolle. bei erfolg schreibt das skript `QA_PASSED.txt` selbst
+10. welten an die orte hängen, dann online oder lokal
 
+seite zuerst. welt danach. ohne `verify_ok.txt` kein chisel.
 
+## modelle heute
+
+| wofür | name | wo |
+| --- | --- | --- |
+| welt | `marble-1.1` | `CHANNEL_SITE_MARBLE_MODELL` |
+| größere welt | `marble-1.1-plus` | dieselbe variable, nur wenn du sie setzt |
+| bild prüfen | `claude-sonnet-5.5` | `CHANNEL_SITE_SICHT_MODELL`, oder der befehl `CHANNEL_SITE_SICHT_CMD` |
+| texte | untertitel über yt-dlp | im beispiel liegen fertige texte, kein sprachmodell |
+| suche | lokal im text | kein extra dienst |
+
+chisel bleibt der editor im browser. das ist kein eigener api-name.
+keys bleiben draußen. `.env` und `.worldlabs_key` stehen in der ignore-liste.
+
+kann die ki die shots nicht sehen und ist kein sicht-befehl gesetzt, gilt die welt nicht als geprüft.
+helligkeit allein ersetzt das lesen nicht.
+
+## bilder
+
+nur gemalt, damit man den stand sieht.
+
+![standbild, gemalt](project/beispiel/standbild.png)
+
+![sicht, gemalt](project/beispiel/sicht.png)
 
 ## start
 
-zuerst werkzeuge (die KI macht das, du siehst was fehlt):
+zuerst werkzeuge. die ki sagt, was fehlt:
 
 ```powershell
 python project/einrichten.py --pip --beispiel
-python project/run.py --check --bis 10
+python project/run.py --check --beispiel --bis 10
 ```
 
-fehlt etwas **muss**, sagt das skript stop und nennt den punkt.
+fehlt etwas **muss**, stoppt das skript und nennt den punkt.
 
-dann:
+dann der beispiel-lauf, ohne netz:
 
 ```powershell
 python project/run.py --beispiel --bis 10
 ```
 
-beliebige kanal-url:
+eigener kanal, erst wenn du die url freigibst:
 
 ```powershell
 python project/run.py --kanal "https://www.youtube.com/@Kanal" --bis 10
@@ -49,17 +71,19 @@ python project/run.py --kanal "https://www.youtube.com/@Kanal" --bis 10
 prüfen:
 
 ```powershell
-.\.venv\Scripts\python.exe -m pytest
+python -m pytest
 ```
 
-für schritt 7: blender **vor** chisel. chisel macht shots, liest sie, passt live an.
-ohne `verify_ok.txt` kein chisel. welt erst nach passender ansicht.
-für schritt 10: wenn `wrangler` da ist, geht die seite online.
+für schritt 8: blender **vor** chisel. ohne `verify_ok.txt` kein chisel.
+im beispiel wird nichts hochgeladen und nichts online gestellt. es liegt nur die seite lokal, plus eine gemalte ansicht.
+für schritt 10 live: wenn `wrangler` da ist und das projekt existiert, geht die seite online. sonst bleibt sie lokal.
 
-## stand
+## was man sieht
 
-anleitung für die KI, die das einrichtet: [AGENTS.md](AGENTS.md)
+öffentlich: ablauf, skripte, beispiel, gemalte bilder.
+privat: keys, login, echte kanäle, die zwei nachbar-repos (transkripte, 3d).
 
+anleitung für die ki: [AGENTS.md](AGENTS.md)
 
 ## lizenz
 

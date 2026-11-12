@@ -29,6 +29,16 @@ MIN_PANO_PX = 400
 BLACK_MEAN_MAX = 12.0
 WHITE_MEAN_MIN = 243.0
 
+#namen von heute. austauschbar, kein key, kein aufruf im beispiel
+MARBLE_MODELL = (
+    os.environ.get("CHANNEL_SITE_MARBLE_MODELL", "marble-1.1").strip() or "marble-1.1"
+)
+SICHT_MODELL = (
+    os.environ.get("CHANNEL_SITE_SICHT_MODELL", "claude-sonnet-5.5").strip()
+    or "claude-sonnet-5.5"
+)
+SUCHE_ART = "lokal"
+
 
 def kanal_ordner(kanal: str) -> Path:
     return WORK_DIR / kanal

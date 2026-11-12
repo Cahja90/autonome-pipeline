@@ -89,6 +89,7 @@ def ki_sicht(shot: Path, refs: list[Path]) -> dict | None:
         raise RuntimeError(f"sicht-befehl keine json: {err}") from err
     if not isinstance(daten, dict):
         raise RuntimeError("sicht-befehl: json ist kein objekt")
+    daten.setdefault("modell", config.SICHT_MODELL)
     return daten
 
 

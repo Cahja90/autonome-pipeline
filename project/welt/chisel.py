@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 from ablage import json_schreiben
-from config import WORLD_ROOT
+from config import MARBLE_MODELL, WORLD_ROOT
 from welt.marmor import _chrome_port_frei, _skip
 from welt.sicht import sicht_pruefen
 
@@ -82,6 +82,10 @@ class CdpTreiber:
         self.chisel.close_tos()
         self.chisel.upload_glb(str(glb))
         self.chisel.set_prompt(prompt)
+        #nur wenn das nachbar-skript das kann
+        setzen = getattr(self.chisel, "set_model", None)
+        if setzen is not None:
+            setzen(MARBLE_MODELL)
         self.chisel.place_pano_camera()
 
     def screenshot(self, pfad: Path) -> None:

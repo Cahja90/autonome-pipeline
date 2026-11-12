@@ -16,7 +16,7 @@ You are setting up **this repo** so a human can run: YouTube channel URL → tra
 
 ```text
 python project/einrichten.py --pip --beispiel
-python project/einrichten.py --bis 10
+python project/run.py --check --beispiel --bis 10
 ```
 
 (`--beispiel` = no network, for smoke. Live channel: omit `--beispiel`.)
@@ -77,11 +77,23 @@ Gates (do not reorder):
 
 No human in the loop for QA. If a tool is missing, skip that slice and **tell the human**.
 
+## modelle, stand 12. november 2026
+
+namen nur. im beispiel kein aufruf, kein key.
+
+- welt: `marble-1.1` über `CHANNEL_SITE_MARBLE_MODELL`. größer nur wenn gesetzt: `marble-1.1-plus`
+- chisel bleibt der editor im browser
+- sicht: `claude-sonnet-5.5` über `CHANNEL_SITE_SICHT_MODELL`, oder `CHANNEL_SITE_SICHT_CMD`
+- texte: yt-dlp. kein sprachmodell im beispiel
+- suche: lokal im text
+
 ## Env (never commit secrets)
 
-- `CHANNEL_SITE_BEISPIEL=1` — demo data
+- `CHANNEL_SITE_BEISPIEL=1` — demo data, no blender, no upload, no deploy
 - `CHANNEL_SITE_WORK` — work dir (default `project/work`)
 - `CHANNEL_SITE_WORLD_ROOT` — existing 3D scripts
+- `CHANNEL_SITE_MARBLE_MODELL` — world model name, default `marble-1.1`
+- `CHANNEL_SITE_SICHT_MODELL` — vision name, default `claude-sonnet-5.5`
 - `CHANNEL_SITE_SICHT_CMD` — optional vision command (JSON stdout: `ok`, `aenderung`)
 
 ## Halt

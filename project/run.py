@@ -24,6 +24,7 @@ def main(argv: list[str] | None = None) -> int:
         kanal_url = "beispiel"
         kanal = "beispiel"
     else:
+        os.environ.pop("CHANNEL_SITE_BEISPIEL", None)
         kanal_url = args.kanal
         kanal = kanal_name(kanal_url)
     daten = status(beispiel=args.beispiel)

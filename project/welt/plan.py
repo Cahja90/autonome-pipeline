@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from config import MARBLE_MODELL
+
 MIN_TUEREN = 2
 MAX_TUEREN = 4
 WAND_Y = 10.0
@@ -25,6 +27,7 @@ def ort_plan(ort: dict) -> dict:
         "tuer_hoehe": TUER_HOEHE,
         "tueren": tueren,
         "waende_block": _block_punkte(tueren),
+        "modell": MARBLE_MODELL,
         "prompt": (
             f"Photorealistic ancient site {name}. Use uploaded GLB as structure. "
             "Preserve openings. Weathered stone. No text, no people."
