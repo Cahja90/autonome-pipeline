@@ -4,7 +4,7 @@ ein youtube-kanal wird zu texten, bildern, orten, wissen und einer seite mit kar
 3d kommt danach, pro ort. der beispiel-lauf braucht kein netz und keinen key.
 
 stand: 12. november 2026. der ablauf ist auf die modelle von heute gezogen.
-die bilder im repo sind gemalt. kein foto, kein name, keine mail, kein key.
+keine keys, keine mails, keine namen.
 
 ## ablauf
 
@@ -39,11 +39,15 @@ helligkeit allein ersetzt das lesen nicht.
 
 ## bilder
 
-nur gemalt, damit man den stand sieht.
+die vorlage ist das erste bild, ohne leute. aus den videodaten kann dieselbe ruine auf mehrere arten entstehen. die drei welten darunter kommen aus marble.
 
-![standbild, gemalt](project/beispiel/standbild.png)
+![vorlage](project/beispiel/vorlage.jpg)
 
-![sicht, gemalt](project/beispiel/sicht.png)
+![welt 1](project/beispiel/welt_1.jpg)
+
+![welt 2](project/beispiel/welt_2.jpg)
+
+![welt 3](project/beispiel/welt_3.jpg)
 
 ## start
 
@@ -75,12 +79,12 @@ python -m pytest
 ```
 
 für schritt 8: blender **vor** chisel. ohne `verify_ok.txt` kein chisel.
-im beispiel wird nichts hochgeladen und nichts online gestellt. es liegt nur die seite lokal, plus eine gemalte ansicht.
+im beispiel wird nichts hochgeladen und nichts online gestellt. die seite bleibt lokal.
 für schritt 10 live: wenn `wrangler` da ist und das projekt existiert, geht die seite online. sonst bleibt sie lokal.
 
 ## was man sieht
 
-öffentlich: ablauf, skripte, beispiel, gemalte bilder.
+öffentlich: ablauf, skripte, vorlage und die drei marble-welten.
 privat: keys, login, echte kanäle, die zwei nachbar-repos (transkripte, 3d).
 
 anleitung für die ki: [AGENTS.md](AGENTS.md)

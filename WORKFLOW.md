@@ -42,4 +42,5 @@ datei `.halt` im kanal-ordner oder `"halt": true` in `stand.json`.
 - blender **vor** chisel
 - keine keys, keine namen, keine mails ins repo
 - andere zwei repos bleiben getrennt
-- gemalte bilder sind keine belege für eine echte welt
+- die readme zeigt die vorlage und drei marble-welten
+- der beispiel-lauf malt nur lokal, das landet nicht im repo
