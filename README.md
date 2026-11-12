@@ -91,6 +91,5 @@ anleitung für die ki: [AGENTS.md](AGENTS.md)
 
 ## lizenz
 
-MIT. forken, ändern und ein review sind erlaubt. der text steht in [LICENSE](LICENSE).
-wie man mitmacht: [CONTRIBUTING.md](CONTRIBUTING.md).
-fremde werke und die drei marble-bilder: [NOTICE.md](NOTICE.md).
+MIT. [LICENSE](LICENSE).
+
