@@ -1,4 +1,5 @@
 # autonome pipeline
+[![pruefen](https://github.com/Cahja90/autonome-pipeline/actions/workflows/pruefen.yml/badge.svg)](https://github.com/Cahja90/autonome-pipeline/actions/workflows/pruefen.yml)
 
 ein youtube-kanal wird zu texten, bildern, orten, wissen und einer seite mit karte.
 3d kommt danach, pro ort. der beispiel-lauf braucht kein netz und keinen key.
